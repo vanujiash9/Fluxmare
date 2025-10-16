@@ -451,13 +451,6 @@ git push origin main
 - Thiếu packages/types → `npm install`.
 - Lỗi TypeScript do compiler option không hợp lệ (`ignoreDeprecations`) → xóa option nếu `npx tsc` báo lỗi unknown option.
 
-## Muốn tôi làm tiếp? (tôi có thể giúp)
-
-- Hoàn thiện chuyển đổi imports trên toàn repo (loại bỏ proxies khi tất cả file đã import canonical paths).
-- Phục hồi file cụ thể từ `_deprecated` hoặc từ `HEAD` nếu bạn muốn nguyên trạng cũ.
-- Chạy dev server và sửa các lỗi runtime mà Vite báo.
-
-Cho biết lựa chọn của bạn, tôi sẽ tiếp tục và commit các thay đổi (nếu cần) rồi push.
 
 ---
 
