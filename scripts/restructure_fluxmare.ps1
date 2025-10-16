@@ -1,10 +1,3 @@
-<#
-restructure_fluxmare.ps1
-Dry-run by default. To apply changes run with -Apply.
-Usage:
-  .\restructure_fluxmare.ps1          # prints planned moves
-  .\restructure_fluxmare.ps1 -Apply  # actually move files
-#>
 param(
     [switch]$Apply
 )
