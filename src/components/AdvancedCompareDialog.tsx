@@ -6,8 +6,13 @@ import {
   DialogTrigger,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/controls/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/layout/card";
 import {
   BarChart,
   Bar,
@@ -33,7 +38,7 @@ import {
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import type { ThemeColor } from "@/App";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/ui/controls/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface HistoryItem {

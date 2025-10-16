@@ -7,7 +7,7 @@ import DashboardHistory from "../DashboardHistory";
 import EmptyState from "../shared/EmptyState";
 import SettingsDialog from "../shared/SettingsDialog";
 import HelpDialog from "../shared/HelpDialog";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/controls/button";
 import {
   LogOut,
   BarChart3,

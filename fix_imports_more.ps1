@@ -1,5 +1,3 @@
-# fix_imports_more.ps1
-# Safer comprehensive import fixer. Creates .bak backups.
 $root = Split-Path -Path $MyInvocation.MyCommand.Path -Parent
 $src = Join-Path $root 'src'
 

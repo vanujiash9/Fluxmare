@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { BarChart3, Clock, TrendingUp, X, Trash2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/controls/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { DashboardData } from "../utils/mockData";
 

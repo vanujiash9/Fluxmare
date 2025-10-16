@@ -1,26 +1,41 @@
-﻿import { useState, useEffect } from 'react';
-import LoginForm from './components/auth/LoginForm';
-import RegisterForm from './components/auth/RegisterForm';
-import ChatBot from './components/chat/ChatBot';
-import AdminDashboard from './pages/Admin/AdminDashboard';
-import { Toaster } from './components/ui/sonner';
+﻿import { useState, useEffect } from "react";
+import LoginForm from "./components/auth/LoginForm";
+import RegisterForm from "./components/auth/RegisterForm";
+import ChatBot from "./components/chat/ChatBot";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import { Toaster } from "@/components/ui/sonner";
 
-export type ThemeColor = 'default' | 'pink' | 'blue' | 'purple' | 'ocean' | 'sunset' | 'emerald' | 'rose' | 'indigo' | 'teal' | 'amber' | 'lime' | 'fuchsia' | 'sky' | 'custom';
+export type ThemeColor =
+  | "default"
+  | "pink"
+  | "blue"
+  | "purple"
+  | "ocean"
+  | "sunset"
+  | "emerald"
+  | "rose"
+  | "indigo"
+  | "teal"
+  | "amber"
+  | "lime"
+  | "fuchsia"
+  | "sky"
+  | "custom";
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<string | null>(null);
   const [currentUserEmail, setCurrentUserEmail] = useState<string | null>(null);
   const [showRegister, setShowRegister] = useState(false);
-  const [themeColor, setThemeColor] = useState<ThemeColor>('default');
+  const [themeColor, setThemeColor] = useState<ThemeColor>("default");
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [customColor, setCustomColor] = useState<string>('#ff0080');
+  const [customColor, setCustomColor] = useState<string>("#ff0080");
 
   useEffect(() => {
-    const user = localStorage.getItem('currentUser');
-    const userEmail = localStorage.getItem('currentUserEmail');
-    const savedTheme = localStorage.getItem('themeColor') as ThemeColor;
-    const savedDarkMode = localStorage.getItem('isDarkMode');
-    const savedCustomColor = localStorage.getItem('customColor');
+    const user = localStorage.getItem("currentUser");
+    const userEmail = localStorage.getItem("currentUserEmail");
+    const savedTheme = localStorage.getItem("themeColor") as ThemeColor;
+    const savedDarkMode = localStorage.getItem("isDarkMode");
+    const savedCustomColor = localStorage.getItem("customColor");
     if (user) {
       setCurrentUser(user);
     }
@@ -31,7 +46,7 @@ export default function App() {
       setThemeColor(savedTheme);
     }
     if (savedDarkMode !== null) {
-      setIsDarkMode(savedDarkMode === 'true');
+      setIsDarkMode(savedDarkMode === "true");
     }
     if (savedCustomColor) {
       setCustomColor(savedCustomColor);
@@ -40,78 +55,96 @@ export default function App() {
 
   const handleLogin = (usernameOrEmail: string, password?: string) => {
     // Check admin account
-    if (usernameOrEmail === 'fluxmare_admin@gmail.com' && password === '19062004') {
-      setCurrentUser('admin');
-      setCurrentUserEmail('fluxmare_admin@gmail.com');
-      localStorage.setItem('currentUser', 'admin');
-      localStorage.setItem('currentUserEmail', 'fluxmare_admin@gmail.com');
+    if (
+      usernameOrEmail === "fluxmare_admin@gmail.com" &&
+      password === "19062004"
+    ) {
+      setCurrentUser("admin");
+      setCurrentUserEmail("fluxmare_admin@gmail.com");
+      localStorage.setItem("currentUser", "admin");
+      localStorage.setItem("currentUserEmail", "fluxmare_admin@gmail.com");
       return;
     }
 
     // Regular user login
     setCurrentUser(usernameOrEmail);
     setCurrentUserEmail(usernameOrEmail);
-    localStorage.setItem('currentUser', usernameOrEmail);
-    localStorage.setItem('currentUserEmail', usernameOrEmail);
+    localStorage.setItem("currentUser", usernameOrEmail);
+    localStorage.setItem("currentUserEmail", usernameOrEmail);
   };
 
-  const handleRegister = (username: string, email: string, password: string) => {
+  const handleRegister = (
+    username: string,
+    email: string,
+    password: string
+  ) => {
     localStorage.setItem(`user_${username}`, password);
     localStorage.setItem(`email_${username}`, email);
     setCurrentUser(username);
     setCurrentUserEmail(email);
-    localStorage.setItem('currentUser', username);
-    localStorage.setItem('currentUserEmail', email);
+    localStorage.setItem("currentUser", username);
+    localStorage.setItem("currentUserEmail", email);
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
     setCurrentUserEmail(null);
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('currentUserEmail');
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("currentUserEmail");
   };
 
   const handleChangeTheme = (theme: ThemeColor) => {
     setThemeColor(theme);
-    localStorage.setItem('themeColor', theme);
+    localStorage.setItem("themeColor", theme);
   };
 
   const handleToggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    localStorage.setItem('isDarkMode', String(newMode));
+    localStorage.setItem("isDarkMode", String(newMode));
   };
 
   const handleChangeCustomColor = (color: string) => {
     setCustomColor(color);
-    localStorage.setItem('customColor', color);
-    setThemeColor('custom');
-    localStorage.setItem('themeColor', 'custom');
+    localStorage.setItem("customColor", color);
+    setThemeColor("custom");
+    localStorage.setItem("themeColor", "custom");
   };
 
   if (!currentUser) {
     return (
-      <div className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'} flex items-center justify-center p-4 relative overflow-hidden`}>
+      <div
+        className={`min-h-screen ${
+          isDarkMode ? "bg-black" : "bg-white"
+        } flex items-center justify-center p-4 relative overflow-hidden`}
+      >
         {/* Animated background pattern */}
-        <div className={`absolute inset-0 ${isDarkMode ? 'opacity-5' : 'opacity-10'}`}>
+        <div
+          className={`absolute inset-0 ${
+            isDarkMode ? "opacity-5" : "opacity-10"
+          }`}
+        >
           <div className="absolute top-10 left-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-overlay filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-sky-600 rounded-full mix-blend-overlay filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div
+            className="absolute bottom-10 right-10 w-96 h-96 bg-sky-600 rounded-full mix-blend-overlay filter blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
         </div>
-        
+
         <div className="relative z-10">
           {showRegister ? (
-            <RegisterForm 
+            <RegisterForm
               onRegister={handleRegister}
               onToggleForm={() => setShowRegister(false)}
               isDarkMode={isDarkMode}
-              accentColor={themeColor === 'custom' ? customColor : undefined}
+              accentColor={themeColor === "custom" ? customColor : undefined}
             />
           ) : (
-            <LoginForm 
+            <LoginForm
               onLogin={handleLogin}
               onToggleForm={() => setShowRegister(true)}
               isDarkMode={isDarkMode}
-              accentColor={themeColor === 'custom' ? customColor : undefined}
+              accentColor={themeColor === "custom" ? customColor : undefined}
             />
           )}
         </div>
@@ -120,21 +153,21 @@ export default function App() {
   }
 
   // Check if admin
-  if (currentUser === 'admin' && currentUserEmail === 'fluxmare_admin@gmail.com') {
+  if (
+    currentUser === "admin" &&
+    currentUserEmail === "fluxmare_admin@gmail.com"
+  ) {
     return (
       <>
         <AdminDashboard onLogout={handleLogout} />
-        <Toaster 
-          position="top-right"
-          theme={isDarkMode ? 'dark' : 'light'}
-        />
+        <Toaster position="top-right" theme={isDarkMode ? "dark" : "light"} />
       </>
     );
   }
 
   return (
     <>
-      <ChatBot 
+      <ChatBot
         username={currentUser}
         onLogout={handleLogout}
         themeColor={themeColor}
@@ -144,11 +177,7 @@ export default function App() {
         onToggleDarkMode={handleToggleDarkMode}
         onChangeCustomColor={handleChangeCustomColor}
       />
-      <Toaster 
-        position="top-right"
-        theme={isDarkMode ? 'dark' : 'light'}
-      />
+      <Toaster position="top-right" theme={isDarkMode ? "dark" : "light"} />
     </>
   );
 }
-

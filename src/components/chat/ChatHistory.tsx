@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as React from "react";
-import { Button } from "../ui/button";
-import { ScrollArea } from "../ui/scroll-area";
+import { Button } from "@/components/ui/controls/button";
+import { ScrollArea } from "@/components/ui/layout/scrollArea";
 import {
   History,
   Trash2,

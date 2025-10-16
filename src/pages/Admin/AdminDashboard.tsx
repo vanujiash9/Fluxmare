@@ -5,15 +5,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card";
+} from "@/components/ui/layout/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "../../components/ui/tabs";
-import { Button } from "../../components/ui/button";
-import { ScrollArea } from "../../components/ui/scroll-area";
+} from "@/components/ui/layout/tabs";
+import { Button } from "@/components/ui/controls/button";
+import { ScrollArea } from "@/components/ui/layout/scrollArea";
 import {
   Users,
   MessageSquare,

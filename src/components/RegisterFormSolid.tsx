@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Mail, Lock, Eye, EyeOff, UserPlus, User, Chrome } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/controls/button";
+import { Input } from "@/components/ui/controls/input";
+import { Checkbox } from "@/components/ui/controls/checkbox";
 import fluxmareLogo from "@/assets/48159e3c19318e6ee94d6f46a7da4911deba57ae.png";
 
 interface RegisterFormProps {
