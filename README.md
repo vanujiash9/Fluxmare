@@ -1,5 +1,4 @@
-# Fluxmare — Hướng dẫn chi tiết (Tiếng Việt)
-
+# Fluxmare
 **Tổng quan ngắn:** Fluxmare là một ứng dụng web React + TypeScript dùng Vite, kết hợp một số thành phần AI để hỗ trợ **dự đoán tiêu thụ nhiên liệu** và đưa ra các **khuyến nghị hành động** dựa trên dữ liệu lịch sử và đầu vào thời gian thực. Ứng dụng chứa dashboard quản trị, lịch sử chat, bot trợ lý, và nhiều component UI có thể tái sử dụng.
 
 README này cung cấp hướng dẫn chạy, build, debug, và mô tả chi tiết từng thư mục + file quan trọng. File viết bằng tiếng Việt, có bảng để bạn tham khảo dễ hơn.
